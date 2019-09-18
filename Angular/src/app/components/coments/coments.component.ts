@@ -35,12 +35,15 @@ export class ComentsComponent implements OnInit {
   this.data.onClick2.subscribe(val=>{
     this.show = true;
     this.hide = false;
+    
 
   })
 
   this.data.onClick.subscribe(val=>{
     this.show = false;
     this.hide = true;
+    this.user = localStorage.getItem('user');
+
 
   })
 
@@ -62,6 +65,8 @@ export class ComentsComponent implements OnInit {
   }
 
   add() {
+    this.user = localStorage.getItem('user');
+
     this.obj = { text: this.text, user: this.user, team: this.team }
     this.http.add(this.obj).subscribe(val => {
       this.array = val;
