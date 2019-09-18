@@ -1,0 +1,16 @@
+.cont{
+    /* padding-left: 15%; */
+    padding-top: 5%;
+    /* border: 1px solid black; */
+     width: max-content;
+     flex-basis: 400px ;
+     
+     
+
+}
+.array {
+  display: flex;
+}
+.array div {
+    margin: 10px; 
+  }
