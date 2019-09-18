@@ -4,12 +4,21 @@
      <h3> {{team}}</h3>
 
    <div id='block'>
-   <div *ngFor='let item of array' class="array"> 
-       <div><img src="{{item.img}}" alt="" width="50px" height="50px" style="border-radius: 50%"></div>
-       <div>{{item.text}}</div> 
+   <div *ngFor='let item of array'> 
 
-       <div *ngIf='show' class="left"><button class="btn btn-danger" (click)="del()" disabled>X</button></div>
-       <div *ngIf='hide' class="left"><button class="btn btn-danger" (click)="del(item.text)">X</button></div>
+      <mat-list role="list">
+
+          <mat-list-item role="listitem" class="hov" (click)='add(item.items)'>
+          <img src="{{item.img}}" alt="" width="50px" height="50px" style="border-radius: 50%">
+
+            {{item.text}}
+            
+          </mat-list-item>
+              
+      </mat-list>
+
+       <div *ngIf='show' class="left"><button class="btn btn-danger" (click)="del()" disabled>Delete</button></div>
+       <div *ngIf='hide' class="left"><button class="btn btn-danger" (click)="del(item.text)">Delete</button></div>
        <hr>
    </div>
 

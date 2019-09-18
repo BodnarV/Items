@@ -14,12 +14,15 @@ export class ItemsComponent implements OnInit {
   private item;
   private Array;
   private user;
+  private leng;
 
   bool:boolean = true;
   bool2:boolean = false;
 
 
   ngOnInit() {
+
+    //======================================================
 
     this.user = localStorage.getItem('user');
      
@@ -28,15 +31,11 @@ export class ItemsComponent implements OnInit {
       this.bool2 = true;
      }
     //======================================================
-  //  this.bool = this.data.fun();
-  //  this.bool2 = this.data.fun2();
-
+ 
 
     this.http.all().subscribe((val:any)=>{
       this.Array = val;
     })
-
- 
 
     this.data.onClick.subscribe(val=>{
       this.bool = false;
@@ -48,6 +47,10 @@ export class ItemsComponent implements OnInit {
       this.bool = true;
       this.bool2 = false;
 
+    })
+    
+    this.data.onClick4.subscribe((val:any)=>{
+    this.leng = val;
     })
   }
     //======================================================
@@ -72,4 +75,6 @@ export class ItemsComponent implements OnInit {
   add(item){
     this.data.add(item);
   }
+  
+
 }

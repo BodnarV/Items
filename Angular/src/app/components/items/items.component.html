@@ -19,9 +19,12 @@
 
         <!-- ================================================================================================================== -->
          <div  *ngFor='let item of Array;let i = index' class="items">
-           <div class="hov" (click)='add(item.items)'>{{item.items}}</div>
-           <div class="hov">{{i+1}}</div> 
+                 
+         <mat-list role="list">
 
+             <mat-list-item role="listitem" class="hov" (click)='add(item.items)'>{{item.items}}</mat-list-item>
+                
+         </mat-list>
            
            <div *ngIf='bool2'> <button class="btn btn-danger" (click)='delete(item.items)'>X</button></div>
 

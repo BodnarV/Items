@@ -5,8 +5,9 @@
      width: max-content;
      flex-basis: 400px ;
      
-     
-
+}
+.hov{
+  color: black
 }
 .array {
   display: flex;

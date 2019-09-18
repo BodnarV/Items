@@ -19,6 +19,7 @@ import { ItemsComponent } from './components/items/items.component';
 import { ComentsComponent } from './components/coments/coments.component';
 import { FormsModule }   from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatButtonModule, MatCheckboxModule,MatInputModule,MatFormFieldModule,MatDividerModule,MatSnackBarModule
+    MatButtonModule, MatCheckboxModule,MatInputModule,MatFormFieldModule,MatDividerModule,MatSnackBarModule,MatListModule
     
   ],
   providers: [],

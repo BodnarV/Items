@@ -10,6 +10,8 @@ export class DataService {
   onClick: EventEmitter<any> = new EventEmitter();
   onClick2: EventEmitter<any> = new EventEmitter();
   onClick3: EventEmitter<any> = new EventEmitter();
+  onClick4: EventEmitter<any> = new EventEmitter();
+
 
 
 
@@ -31,6 +33,10 @@ export class DataService {
 
   add(item){
    this.onClick3.emit(item);
+  }
+
+  len(leng){
+    this.onClick4.emit(leng);
   }
 }
  

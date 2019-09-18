@@ -57,6 +57,8 @@ export class ComentsComponent implements OnInit {
       this.http.gets(val).subscribe((arr:any) => {
       
         this.array = arr
+
+        this.data.len(arr.length);
           
 
       })

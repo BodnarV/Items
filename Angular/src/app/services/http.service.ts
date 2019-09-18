@@ -50,6 +50,12 @@ export class HttpService {
     return this.http.post('http://localhost:4000/user/del',obj);
 
   }
+
+  leng(len){
+    
+    return this.http.post('http://localhost:4000/user/leng',len);
+   
+  }
 }
 
 

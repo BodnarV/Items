@@ -1,6 +1,9 @@
 .hov:hover{
  color:blue;
 }
+.hov{
+   color: black 
+}
 .items{
     display: flex;
     justify-content: space-between;
