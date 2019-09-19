@@ -1,15 +1,9 @@
 var mongoose = require('../modules/mongoose.js');
 var CommentSchem = mongoose.Schema({
 
-  text:{ type:String },
-  img:{ type:String },
-  team:{ type:String },
-
-
-  
- 
-
-
+  text: { type: String },
+  img: { type: String },
+  team: { type: String },
 
 });
 

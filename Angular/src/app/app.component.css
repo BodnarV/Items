@@ -1,6 +1,3 @@
 .flex div{
-    flex-basis: 500px;
-}
-.flex{
-     flex-wrap: wrap;
+    flex-basis:30%;
 }

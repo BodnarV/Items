@@ -4,12 +4,9 @@ var app = express();
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
-
-
-
 app.use(cors());
 
-var user = require('./routs/userRout');
+var user = require('./routes/userRoute');
 
 
 app.use(bodyParser.json());

@@ -11,32 +11,27 @@ export class DataService {
   onClick2: EventEmitter<any> = new EventEmitter();
   onClick3: EventEmitter<any> = new EventEmitter();
   onClick4: EventEmitter<any> = new EventEmitter();
+  onClick5: EventEmitter<any> = new EventEmitter();
 
 
+  bool: boolean = true;
+  bool2: boolean = false;
 
 
-
-  bool:boolean = true;
-  bool2:boolean = false;
-  
- 
-  logout(){
+  logout() {
     this.onClick2.emit();
-    
 
   }
-
-  logins(){
+  logins() {
     this.onClick.emit();
-
   }
-
-  add(item){
-   this.onClick3.emit(item);
+  add(item) {
+    this.onClick3.emit(item);
   }
-
-  len(leng){
+  len(leng) {
     this.onClick4.emit(leng);
   }
+  dels(){
+    this.onClick5.emit();
+  }
 }
- 

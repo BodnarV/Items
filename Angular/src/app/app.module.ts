@@ -20,6 +20,7 @@ import { ComentsComponent } from './components/coments/coments.component';
 import { FormsModule }   from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {MatListModule} from '@angular/material/list';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatButtonModule, MatCheckboxModule,MatInputModule,MatFormFieldModule,MatDividerModule,MatSnackBarModule,MatListModule
+    MatButtonModule, MatCheckboxModule,MatInputModule,MatFormFieldModule,MatDividerModule,MatSnackBarModule,MatListModule,
+    MatProgressSpinnerModule
     
   ],
   providers: [],

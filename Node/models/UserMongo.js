@@ -20,13 +20,13 @@ var userSchem = mongoose.Schema({
   login: {
     type: String
   },
-  password: { 
-    type: String 
+  password: {
+    type: String
   },
-  name:{
-    type:String
+  name: {
+    type: String
   },
-  img:{ type:String },
+  img: { type: String },
 
 });
 

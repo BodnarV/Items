@@ -16,15 +16,14 @@ export class ComentsComponent implements OnInit {
 
   private user;
   private text;
-  private array:any;
+  private array:any = [];
+  private arrayLength;
 
- 
   show:boolean = true;
   hide:boolean = false;
 
 
   ngOnInit() {
-
 
    if(localStorage.user != null){
      this.show = false;
@@ -36,7 +35,6 @@ export class ComentsComponent implements OnInit {
     this.show = true;
     this.hide = false;
     
-
   })
 
   this.data.onClick.subscribe(val=>{
@@ -44,24 +42,30 @@ export class ComentsComponent implements OnInit {
     this.hide = true;
     this.user = localStorage.getItem('user');
 
-
   })
 
-
-
-    //==============================================
     this.data.onClick3.subscribe(val => {
       this.team = val,
-        this.user = localStorage.getItem('user');
 
+      this.user = localStorage.getItem('user');
+       
       this.http.gets(val).subscribe((arr:any) => {
-      
-        this.array = arr
+       
+       if(arr == null){
+        this.array = [{text:'Not Found'}];
+        this.arrayLength = this.array.length
 
-        this.data.len(arr.length);
-          
 
+       }  if(arr) {
+          this.array = arr
+          this.arrayLength = arr.length;
+       }
+       
       })
+    })
+
+    this.data.onClick5.subscribe(()=>{
+      this.array = [{text:'Not Found'}]
     })
 
   }
@@ -72,12 +76,15 @@ export class ComentsComponent implements OnInit {
     this.obj = { text: this.text, user: this.user, team: this.team }
     this.http.add(this.obj).subscribe(val => {
       this.array = val;
+      this.arrayLength = this.array.length;
+
     })
   }
 
   del(text){
     this.http.del({text:text,team:this.team}).subscribe(val=>{
       this.array = val;
+      this.arrayLength = this.array.length;
 
     })
   }
