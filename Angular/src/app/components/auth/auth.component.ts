@@ -3,6 +3,8 @@ import { HttpService } from 'src/app/services/http.service';
 
 import { DataService } from 'src/app/services/data.service';
 import { MatSnackBar } from '@angular/material/snack-bar'
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-auth',
@@ -12,10 +14,14 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 export class AuthComponent implements OnInit {
 
   constructor(private http: HttpService, private data: DataService, private _snackBar: MatSnackBar) { }
+  
 
   private user;
+  loginForm: FormGroup;
 
   ngOnInit() {
+    this.loginForm = this.createLoginForm();
+
     this.user = localStorage.getItem('user');
     if (this.user != null) {
 
@@ -33,10 +39,18 @@ export class AuthComponent implements OnInit {
   hide: boolean = false;
 
 
+  createLoginForm(): FormGroup {
+    return new FormGroup({
+      login: new FormControl('Vitaliy', [Validators.required]),
+      password: new FormControl('123', [Validators.required])
+    });
+  }
 
   log(message: string = 'Complete', action: string = 'Login') {
 
-    this.obj = { login: this.login, password: this.password }
+     
+    this.obj = this.loginForm.value;
+    console.log(this.loginForm.value)
 
     this.http.login(this.obj).subscribe((val: any) => {
 
@@ -64,3 +78,8 @@ export class AuthComponent implements OnInit {
 
 
 }
+
+
+
+
+ 

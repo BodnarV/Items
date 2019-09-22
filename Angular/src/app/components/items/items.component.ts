@@ -19,7 +19,6 @@ export class ItemsComponent implements OnInit {
   bool: boolean = true;
   bool2: boolean = false;
 
-
   ngOnInit() {
 
     this.user = localStorage.getItem('user');
