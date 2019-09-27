@@ -3,6 +3,8 @@ var rout = express.Router();
 var User = require('../models/UserMongo');
 var Comment = require('../models/Comment');
 var Items = require('../models/Items');
+var ItemController = require('../controllers/items');
+ItemController = new ItemController();
 
 rout.post('/items', (req, res) => {
 
@@ -21,8 +23,8 @@ rout.post('/items', (req, res) => {
 
 
 rout.get('/All', (req, res) => {
-    Items.find().then((user) => {
-        res.send(user);
+    ItemController.all().then((result) => {
+        res.send(result);
     })
 })
 
@@ -30,7 +32,7 @@ rout.post('/delete', (req, res) => {
     Items.remove({ items: req.body.item }).then(() => {
         Items.find().then((items) => {
             res.send(items);
-        })  
+        })
     })
 })
 
@@ -49,19 +51,8 @@ rout.post('/add', (req, res) => {
     var user = req.body.user;
     var team = req.body.team;
 
-    User.find({ _id: user }).then((user) => {
-        var comment = new Comment({
-            text: text,
-            img: user[0].img,
-            team: team
-        });
-
-        comment.save().then((user) => {
-
-            Comment.find({ team: team }).then((items) => {
-                res.send(items);
-            })
-        })
+    ItemController.add(text,user,team).then((result)=>{
+        res.send(result);
     })
 })
 
@@ -76,12 +67,9 @@ rout.post('/gets', (req, res) => {
 })
 
 rout.post('/del', (req, res) => {
-    Comment.remove({ team: req.body.team, text: req.body.text }).then((comment) => {
-        Comment.find({ team: req.body.team }).then((user) => {
-            res.send(user);
-        })
+    ItemController.del(req.body.team, req.body.text).then((result) => {
+        res.send(result);
     })
-
 })
 
 

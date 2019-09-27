@@ -1,11 +1,7 @@
 .cont{
-    /* padding-left: 15%; */
     padding-top: 5%;
-    /* border: 1px solid black; */
-     width: max-content;
-     flex-basis: 400px ;
-     border-radius: 5%
-     
+    width: 92%;
+   
 }
 .hov{
   color: black

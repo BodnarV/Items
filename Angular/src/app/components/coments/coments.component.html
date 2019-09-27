@@ -1,15 +1,19 @@
-<div class="cont alert alert-success">
-
+<div class="cont alert alert-danger">
+  
+  <div [@fadeInDown]="fadeInDown">
+       
   <h1 class="display-4">Comments:</h1>
-  <h3>( {{team}} <b>{{arrayLength}})</b></h3>
-  <hr>
+
+  <h3>( {{team}} <b [@zoomIn]="zoomIn">{{arrayLength}})</b></h3>
+  </div> 
+  <hr> 
  
   <div id='block'>
-    <div *ngFor='let item of array'>
+    <div *ngFor='let item of array'> 
 
-      <mat-list role="list">
+      <mat-list role="list"  > 
 
-        <mat-list-item role="listitem" class="hov">
+        <mat-list-item role="listitem" class="hov" [@slideInDown]="slideInDown">
           <img src="{{item.img}}" alt="" width="50px" height="50px" style="border-radius: 50%">
 
           {{item.text}}

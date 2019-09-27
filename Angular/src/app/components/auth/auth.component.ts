@@ -5,7 +5,6 @@ import { DataService } from 'src/app/services/data.service';
 import { MatSnackBar } from '@angular/material/snack-bar'
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -15,7 +14,6 @@ export class AuthComponent implements OnInit {
 
   constructor(private http: HttpService, private data: DataService, private _snackBar: MatSnackBar) { }
   
-
   private user;
   loginForm: FormGroup;
 

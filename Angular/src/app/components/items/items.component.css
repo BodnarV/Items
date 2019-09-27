@@ -18,3 +18,9 @@
 a{
     font-size: x-large;
 }
+
+small {
+    font-size: 0.875rem;
+    font-weight: normal;
+  }
+ 

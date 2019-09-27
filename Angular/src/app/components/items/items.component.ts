@@ -2,18 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { DataService } from 'src/app/services/data.service';
 
+
+
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css']
+  styleUrls: ['./items.component.css'],
+  
 })
 export class ItemsComponent implements OnInit {
-
+  //========================================================================
   constructor(private httpS: HttpService, private data: DataService) { }
 
   private item;
   private Array;
   private user;
+
 
 
   bool: boolean = true;
@@ -54,7 +58,7 @@ export class ItemsComponent implements OnInit {
   delete(item) {
     this.httpS.delete(item).subscribe(val => {
       this.Array = val;
-      this.data.dels(); 
+      this.data.dels();
     })
   }
 
