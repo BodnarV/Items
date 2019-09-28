@@ -22,6 +22,10 @@ import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ItemComponent } from './components/item.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { AnimationsComponent } from './animations/animations.component';
+
 
 
 @NgModule({
@@ -30,19 +34,20 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AuthComponent,
     ItemsComponent,
     ComentsComponent,
-
-
+    ItemComponent,
+    AnimationsComponent,
+   
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule, 
-    AppRoutingModule,
+    AppRoutingModule, 
     NoopAnimationsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     MatButtonModule, MatCheckboxModule, MatInputModule, MatFormFieldModule, MatDividerModule, MatSnackBarModule, MatListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,ScrollingModule
 
   ],
   providers: [],

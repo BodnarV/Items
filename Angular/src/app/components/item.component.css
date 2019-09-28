@@ -1,0 +1,30 @@
+.flex div{
+    flex-basis:500px;
+    padding-bottom: 2%;
+    justify-content: center
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+
+    flex-basis: 500px;
+    flex-wrap: wrap;
+    background: linear-gradient(45deg, black, transparent);
+}
+
+@media screen and (max-width:1200px){
+    .flex div{
+        flex-basis:100%;
+    }
+    
+} 
+
+@media screen and (max-width:1500px){
+    .flex div:nth-child(3){
+        flex-basis:100%; 
+    }
+
+    .flex div:nth-child(2){
+        margin-right: 8%
+    }
+}

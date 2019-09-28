@@ -1,10 +1,14 @@
 .cont{
     padding-top: 5%;
     width: 92%;
+    background:black;
+    padding: 20px;
+    border-radius: 5%;
    
 }
 .hov{
-  color: black
+  color:white;
+  margin: 10px
 }
 .array {
   display: flex;

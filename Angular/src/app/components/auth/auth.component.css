@@ -3,6 +3,7 @@
     /* width: 20%; */
     height: 100%;
     
+    
 }
  .example-form {
    padding-top:40%;
@@ -20,7 +21,7 @@ input{
 .text2{
     color: silver;
     font-size: x-large;
-    padding-left: 20px;
+    padding-left: 20px; 
 }
 button{  
     background: blue;
@@ -38,8 +39,8 @@ button{
 .hide{
     margin-top:750px;
     display: flex;
-    justify-content: space-between
-    
+    justify-content: space-between;
+    padding-bottom: 10%;
 }
 .hide div{
     font-size: smaller
