@@ -4,11 +4,11 @@
        
         <div class="bloc"> 
             <div class="form-group" *ngIf='bool2'>
-                    <input  class="form-control" placeholder="Type name here..." [(ngModel)]="item">
+                    <input  class="form-control" placeholder="Add new theme" [(ngModel)]="item">
             </div>
 
             <div class="form-group" *ngIf='bool'>
-                    <input  class="form-control" placeholder="Type name here..." [(ngModel)]="item" disabled>
+                    <input  class="form-control" placeholder="Add new theme" [(ngModel)]="item" disabled>
             </div>
             <div *ngIf='bool' class="left"><button class="btn btn-primary" (click)="send()" disabled>Add new</button></div>
             <div *ngIf='bool2' class="left"><button class="btn btn-primary" (click)="send()" >Add new</button></div>
@@ -26,5 +26,4 @@
     </div> 
 <!-- ==================================================================================================================== -->
 
-        
 </div>

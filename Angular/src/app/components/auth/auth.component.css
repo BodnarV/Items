@@ -3,7 +3,6 @@
     /* width: 20%; */
     height: 100%;
     
-    
 }
  .example-form {
    padding-top:40%;
@@ -11,7 +10,6 @@
 }
 input{
     color: white;
-    
 }
 .text{
     font-size: -webkit-xxx-large;
@@ -25,7 +23,6 @@ input{
 }
 button{  
     background: blue;
-    
     
 }
 .btn{
@@ -56,6 +53,6 @@ button{
     width: 100%;
   }
   form{
-      padding-bottom: 100px
+      padding-bottom: 89%;  
   }
   

@@ -8,11 +8,15 @@
 }
 .hov{
   color:white;
-  margin: 10px
+  /* margin: 10px */
 }
 .array {
   display: flex;
 }
-.array div {
+/* .array div {
     margin: 10px; 
+  } */
+  
+  .btn{
+    margin-left: 82%;
   }

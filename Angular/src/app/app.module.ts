@@ -25,6 +25,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ItemComponent } from './components/item.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { AnimationsComponent } from './animations/animations.component';
+import { BackgroundComponent } from './animations/background/background.component';
 
 
 
@@ -36,6 +37,7 @@ import { AnimationsComponent } from './animations/animations.component';
     ComentsComponent,
     ItemComponent,
     AnimationsComponent,
+    BackgroundComponent,
    
   ],
   imports: [

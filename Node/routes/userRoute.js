@@ -9,15 +9,8 @@ ItemController = new ItemController();
 rout.post('/items', (req, res) => {
 
     var items = req.body.item;
-    var item = new Items({
-        items: items
-    });
-
-    item.save().then(() => {
-        console.log('add new item');
-        Items.find().then((items) => {
-            res.send(items);
-        })
+    ItemController.addItem(items).then((result)=>{
+        res.send(result)
     })
 })
 
@@ -37,12 +30,12 @@ rout.post('/delete', (req, res) => {
 })
 
 rout.post('/login', (req, res) => {
-    User.find({ login: req.body.login, password: req.body.password }).then((user) => {
-        if (user != 0) {
+    var login = req.body.login, password;
+    var password = req.body.password;
 
-            res.send(user[0]._id);
-        }
-    })
+   ItemController.login(login,password).then((result)=>{
+       res.send(result);
+   })
 })
 
 rout.post('/add', (req, res) => {
@@ -57,6 +50,7 @@ rout.post('/add', (req, res) => {
 })
 
 rout.post('/gets', (req, res) => {
+    
     Comment.find({ team: req.body.team }).then((comment) => {
         if (comment != 0) {
             res.send(comment);
@@ -67,6 +61,7 @@ rout.post('/gets', (req, res) => {
 })
 
 rout.post('/del', (req, res) => {
+
     ItemController.del(req.body.team, req.body.text).then((result) => {
         res.send(result);
     })
