@@ -17,11 +17,11 @@
     <div  *ngFor='let item of Array;' class="items">
                  
          <mat-list role="list">
-             <button class="hov btn btn-success" (click)='add(item.items)'>{{item.items}}</button> 
+             <button class="hov btn btn-success" (click)='add(item.items)'>{{item?.items}}</button> 
          </mat-list>
            
-           <div *ngIf='bool2'> <button class="btn btn-danger" (click)='delete(item.items)'>X</button></div>
-           <div *ngIf='bool'> <button class="btn btn-danger" (click)='delete(item.items)' disabled>X</button></div>
+        
+           <div > <button class="btn btn-danger" (click)='delete(item.items)' [disabled]='bool ? true : false'>X</button></div>
 
     </div> 
 <!-- ==================================================================================================================== -->

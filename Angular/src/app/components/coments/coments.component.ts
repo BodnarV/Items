@@ -43,27 +43,38 @@ export class ComentsComponent implements OnInit {
   show:boolean = true;
   hide:boolean = false;
 
+  preloader = false;
+
 
   ngOnInit() {
+    //--------------------------------------------------
+    this.http.getMessages().subscribe((data: any) => {
+    this.preloader = false;
+         
+        this.array = data.items;
+        this.arrayLength = this.array.length;
+    });
   
    if(localStorage.user != null){
      this.show = false;
      this.hide = true;
   
    }
+ //========================================================logOut
 
   this.data.onClick2.subscribe(val=>{
     this.show = true;
     this.hide = false;
     
   })
-
+ //========================================================Login
   this.data.onClick.subscribe(val=>{
     this.show = false;
     this.hide = true;
     this.user = localStorage.getItem('user');
 
   })
+ //========================================================
 
     this.data.onClick3.subscribe(val => {
       this.team = val,
@@ -82,10 +93,6 @@ export class ComentsComponent implements OnInit {
       })
       //------------------------------------------Animations
       this.slideInDown = true;
-    
-
-
-       
      
     })
 
@@ -96,18 +103,19 @@ export class ComentsComponent implements OnInit {
   }
 
   add() {
+    this.preloader = true;
     this.user = localStorage.getItem('user');
+    this.obj = { text: this.text, id: this.user, team: this.team }
+    this.http.sendMessage(this.obj)
 
-    this.obj = { text: this.text, user: this.user, team: this.team }
-    this.http.add(this.obj).subscribe(val => {
-      this.array = val;
-      this.arrayLength = this.array.length;
-
-    })
   }
 
   del(text){
+    this.preloader = true;
+
     this.http.del({text:text,team:this.team}).subscribe(val=>{
+    this.preloader = false;
+
       this.array = val;
       this.arrayLength = this.array.length;
 

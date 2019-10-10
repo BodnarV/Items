@@ -46,13 +46,14 @@ export class AuthComponent implements OnInit {
 
   log(message: string = 'Complete', action: string = 'Login') {
 
-     
     this.obj = this.loginForm.value;
-    console.log(this.loginForm.value)
+ 
 
     this.http.login(this.obj).subscribe((val: any) => {
+      console.log(val);
 
       if (val) {
+
         this.data.logins();
         localStorage.setItem('user', val);
         this.user = val;

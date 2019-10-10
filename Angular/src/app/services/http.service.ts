@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import * as io from "socket.io-client";
+
 
 
 @Injectable({
@@ -8,14 +11,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HttpService {
 
   constructor(private http:HttpClient) { 
+    this.socket = io(this.url);
   }
 
-  public token = localStorage.getItem('token');
+
+  private url = 'http://localhost:4000';
+  private socket;
 
 
-  // login(obj){
-  //   return this.http.post('http://localhost:4000/user/login',obj);
-  // }
   
   all(){
     return this.http.get('http://localhost:4000/user/All');
@@ -56,6 +59,25 @@ export class HttpService {
     return this.http.post('http://localhost:4000/user/leng',len);
    
   }
+
+//=======================================================
+
+  public sendMessage(message) {
+      this.socket.emit('new-message', message);
+  }
+
+//=======================================================
+
+  public getMessages = () => {
+    return Observable.create((observer) => {
+        this.socket.on('add-message', (message) => {
+           
+            observer.next(message);
+        
+        });
+    });
+}
+//=======================================================
 }
 
 

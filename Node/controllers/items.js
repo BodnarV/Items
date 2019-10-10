@@ -13,7 +13,7 @@ class ItemController {
 
     del(team, text) {
         return new Promise((resolve, reject) => {
-            Comment.remove({ team: team, text: text }).then((comment) => {
+            Comment.deleteOne({ team: team, text: text }).then((comment) => {
                 Comment.find({ team: team }).then((user) => {
                     resolve(user);
                 })
@@ -24,20 +24,7 @@ class ItemController {
     add(text, user, team) {
         return new Promise((resolve, reject) => {
 
-            User.find({ _id: user }).then((user) => {
-                var comment = new Comment({
-                    text: text,
-                    img: user[0].img,
-                    team: team
-                });
-
-                comment.save().then((user) => {
-
-                    Comment.find({ team: team }).then((items) => {
-                        resolve(items);
-                    })
-                })
-            })
+            
         })
     }
     addItem(items) {

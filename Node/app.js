@@ -1,25 +1,38 @@
-var express = require('express');
-var app = express();
+let express = require('express')
+let app = express();
+
+let http = require('http');
+let server = http.Server(app);
+
+let socketIO = require('socket.io');
+let io = socketIO(server);
+
+var User = require('./models/UserMongo');
+var Comment = require('./models/Comment');
+var Items = require('./models/Items');
+var chat = require('./models/chat');
 
 var bodyParser = require('body-parser');
 var cors = require('cors');
-
-app.use(cors());
-
 var user = require('./routes/userRoute');
 
 
 app.use(bodyParser.json());
 bodyParser.urlencoded({ extended: true });
 
+
+app.use(cors());
+
 app.use('/user',user);
 
+//=======================================================Socket
+const port = process.env.PORT || 4000;
 
-app.get('/',(req,res) =>{
-res.send('Hello from server');
+require('./sockets')(io);
+
+
+
+server.listen(port, () => {
+    console.log(`started on port: ${port}`);
 });
 
-
-app.listen(4000,()=>{
-console.log('Server runnig');
-});

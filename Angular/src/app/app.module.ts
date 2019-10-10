@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule }   from '@angular/forms'
+import { ReactiveFormsModule }   from '@angular/forms' ;
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +26,7 @@ import { ItemComponent } from './components/item.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { AnimationsComponent } from './animations/animations.component';
 import { BackgroundComponent } from './animations/background/background.component';
+import { PreloaderComponent } from './animations/preloader/preloader.component';
 
 
 
@@ -38,6 +39,7 @@ import { BackgroundComponent } from './animations/background/background.componen
     ItemComponent,
     AnimationsComponent,
     BackgroundComponent,
+    PreloaderComponent,
    
   ],
   imports: [
