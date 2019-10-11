@@ -12,7 +12,7 @@
     <app-preloader></app-preloader>
   </div>
 
-  <div id='block'>
+  <div id='block' *ngIf='!preloader>
     <div *ngFor='let item of array'> 
 
       <mat-list role="list"> 
