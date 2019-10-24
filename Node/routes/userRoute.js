@@ -1,71 +1,54 @@
 var express = require('express');
 var rout = express.Router();
-var User = require('../models/UserMongo');
-var Comment = require('../models/Comment');
-var Items = require('../models/Items');
-var ItemController = require('../controllers/items');
-ItemController = new ItemController();
 
-rout.post('/items', (req, res) => {
+const NodeCache = require("node-cache");
+const myCache = new NodeCache();
 
-    var items = req.body.item;
-    ItemController.addItem(items).then((result)=>{
-        res.send(result)
-    })
-})
+var request = require('request');
 
 
-rout.get('/All', (req, res) => {
-    ItemController.all().then((result) => {
-        res.send(result);
-    })
-})
+rout.get('/all', async (req,res)=>{
+    var text = req.query.obj;
+    var num = req.query.obj2;
 
-rout.post('/delete', (req, res) => {
-    Items.remove({ items: req.body.item }).then(() => {
-        Items.find().then((items) => {
-            res.send(items);
-        })
-    })
-})
+    var page1;
+    var page2;
 
-rout.post('/login', (req, res) => {
-    var login = req.body.login, password;
-    var password = req.body.password;
+    var films = [];
 
-   ItemController.login(login,password).then((result)=>{
-       res.send(result);
-   })
-})
-
-rout.post('/add', (req, res) => {
-
-    var text = req.body.text;
-    var user = req.body.user;
-    var team = req.body.team;
-
-    ItemController.add(text,user,team).then((result)=>{
-        res.send(result);
-    })
-})
-
-rout.post('/gets', (req, res) => {
-    
-    Comment.find({ team: req.body.team }).then((comment) => {
-        if (comment != 0) {
-            res.send(comment);
+    myCache.get(text, function (err, value) {
+        if (value != undefined) {
+            console.log('from Cache');
+            res.send(value)
         } else {
-            res.send(null);
+            //==========================================================================================================
+
+            request(`http://www.omdbapi.com/?apikey=c7c4011c&s=${text}&page=1`, function (error, response, body1) {
+                if (!error) {
+                    page1 = JSON.parse(body1)
+                    films.push(page1);
+
+                    request(`http://www.omdbapi.com/?apikey=c7c4011c&s=${text}&page=2`, function (error, response, body2) {
+                        if (!error) {
+                            page2 = JSON.parse(body2)
+                            films.push(page2);
+
+                            res.send(films);
+
+                            myCache.set(text, films, function (err, success) {
+                                if (!err && success) {
+                                    console.log('success add :' + text);
+                                }
+                            });
+                        }
+                    })
+                }
+            })
+
+            //==========================================================================================================
         }
     })
+
 })
-
-rout.post('/del', (req, res) => {
-
-    ItemController.del(req.body.team, req.body.text).then((result) => {
-        res.send(result);
-    })
-})
-
 
 module.exports = rout;

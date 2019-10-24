@@ -1,0 +1,46 @@
+
+.container{
+    display: flex;
+}
+
+.blocks{
+    display: flex;
+}
+.block div{
+    margin: 11px;
+    padding-right: 13%;
+    flex-basis: 300px;
+}
+.block{
+  
+  width: 350px;
+}
+.conter{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+img{
+    border-radius: 4%;
+}
+*, ::after, ::before {
+    flex-wrap: wrap;
+}
+.example-form{
+  text-align: center;
+    margin:0 auto ;
+}
+b{
+    font-size: 14px;
+}
+.all{
+  display: flex; 
+}
+.navigate{
+   
+    display: flex;
+    justify-content: space-evenly;
+}
+div{
+    color: white;
+}
