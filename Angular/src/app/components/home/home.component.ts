@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
           //========================Filter
           if(this.bestFilms != null){
           this.films2 = this.films.filter(e => this.bestFilms.findIndex(i => i.imdbID == e.imdbID) === -1);    
-          } else {
+          } else{
             this.films2 = this.films; 
           }
           //

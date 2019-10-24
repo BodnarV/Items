@@ -16,11 +16,9 @@ private text;
   Film(){
     return this.selFilm;
   }
-  
   setText(text){
    this.text = text;
   }
-
   Text(){
     return this.text;
   }
