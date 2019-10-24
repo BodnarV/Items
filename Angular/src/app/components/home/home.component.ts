@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   private films = [];
   private films2;
-  private bestFilms;
+  private bestFilms = null;
   private All: boolean = true;
   private Favorites: boolean = false;
 
@@ -50,8 +50,13 @@ export class HomeComponent implements OnInit {
       setTimeout(() => {
         this.httpS.sendMessage({ text: this.text, num: this.num }).subscribe((res: any) => {
           this.films = res[0].Search.concat(res[1].Search);
+        
           //========================Filter
-          this.films2 = this.films.filter(e => this.bestFilms.findIndex(i => i.imdbID == e.imdbID) === -1);
+          if(this.bestFilms != null){
+          this.films2 = this.films.filter(e => this.bestFilms.findIndex(i => i.imdbID == e.imdbID) === -1);    
+          } else {
+            this.films2 = this.films; 
+          }
           //
           this.dataS.setText(this.text); // Set text in Service
         })
